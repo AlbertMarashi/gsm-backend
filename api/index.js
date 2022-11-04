@@ -1,3 +1,5 @@
+console.log("starting api");
+
 import Koa from 'koa'
 import Router from 'koa-router'
 import bodyParser from 'koa-bodyparser'
@@ -19,6 +21,10 @@ import {
 import { Readable } from 'stream'
 
 const router = new Router()
+    .use(async (ctx, next) => {
+        console.log('test')
+        await next()
+    })
     .use(compress())
     .use(stateContext)
     .use(errorMiddleware)
