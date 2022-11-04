@@ -1,0 +1,28 @@
+{
+  "version": "0.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "build": "echo build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Albert Marashi",
+  "dependencies": {
+    "@koa/cors": "^3.1.0",
+    "@promatia/prograph": "0.0.22",
+    "@sendgrid/mail": "^7.4.2",
+    "json2csv": "^5.0.5",
+    "jsonwebtoken": "^8.5.1",
+    "koa": "^2.13.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-compress": "^5.0.1",
+    "koa-cookie": "^1.0.0",
+    "koa-mount": "^4.0.0",
+    "koa-router": "^9.4.0",
+    "moment": "^2.29.1",
+    "mongodb": "^3.6.3",
+    "nodemon": "^2.0.6",
+    "stripe": "^8.132.0"
+  }
+}
