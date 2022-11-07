@@ -35,7 +35,7 @@ const messageResolvers = {
 let graph = new Builder({schema, messageResolvers, directiveResolvers, scalarResolvers})
 
 export async function graphMiddleware (ctx) {
-    console.log(ctx.request.rawBody)
+    console.log(ctx.request)
     let query = ctx.request.body.query
     console.log(query)
     try {
