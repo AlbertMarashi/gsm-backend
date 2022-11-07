@@ -40,7 +40,7 @@ export const resolvers = {
     async loginUser ({token}, { context }) {
         if(token === process.env.loginCode){
             let token = await User.createToken()
-            context.cookies("token", token)
+            context.cookies.set("token", token)
             return token
         }
         context.cookies.set('token', '')
