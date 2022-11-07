@@ -21,10 +21,6 @@ import {
 import { Readable } from 'stream'
 
 const router = new Router()
-    .use(async (ctx, next) => {
-        console.log(ctx.req.url)
-        await next()
-    })
     .use(compress())
     .use(stateContext)
     .use(errorMiddleware)

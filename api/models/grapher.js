@@ -35,7 +35,7 @@ const messageResolvers = {
 let graph = new Builder({schema, messageResolvers, directiveResolvers, scalarResolvers})
 
 export async function graphMiddleware (ctx) {
-    let query = ctx.request.body.query
+    let query = JSON.parse(ctx.request.body).query
     try {
         ctx.body = {
             data: await graph(query, { context: ctx })
