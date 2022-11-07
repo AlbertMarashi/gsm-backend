@@ -5,13 +5,14 @@ const { JsonWebTokenError } = jsonwebtoken
 
 export async function sessionToken (ctx, next) {
     let token = null
+
     if(ctx.header.token) {
         token = ctx.header.token
     }
     if(ctx.cookie && ctx.cookie.token) {
         token = ctx.cookie.token
     }
-    
+
     if(token) {
         try {
             await User.authenticate(token, ctx)
