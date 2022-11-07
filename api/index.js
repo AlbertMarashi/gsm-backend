@@ -22,7 +22,7 @@ import { Readable } from 'stream'
 
 const router = new Router()
     .use(async (ctx, next) => {
-        console.log('test')
+        console.log(ctx.req.url)
         await next()
     })
     .use(compress())
@@ -37,8 +37,8 @@ const router = new Router()
     .use(koaCookie.default())
     .use(bodyParser())
     .use(sessionToken)
-    .post('/graph/', graphMiddleware)
-    .get('/csv', async ctx => {
+    .post('/api/graph/', graphMiddleware)
+    .get('/api/csv', async ctx => {
         if(ctx.state.authenticated !== true) throw new Error('You are not authenticated')
         let stream = new Readable({
             read(){}

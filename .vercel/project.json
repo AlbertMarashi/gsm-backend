@@ -1,1 +1,10 @@
-{"projectId":"prj_uh9uMSjRnpG7C63bl1n8QpEOjGSb","orgId":"pGpYKgna9GtcbGFa8aDDSmdK"}
+{
+    "orgId":"pGpYKgna9GtcbGFa8aDDSmdK",
+    "projectId":"prj_yVxsP2iRnlwuJkZqkkuzcptMG57E",
+    "rewrites": [
+        {
+            "source": "/api/(.*)",
+            "destination": "/api"
+        }
+    ]
+}

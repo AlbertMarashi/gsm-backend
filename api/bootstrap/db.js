@@ -2,5 +2,4 @@ import mongodb from 'mongodb'
 
 const { MongoClient } = mongodb
 
-let url = 'mongodb://db.gsm'
-export let connection = await MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
+export let connection = await MongoClient.connect(`mongodb+srv://${process.env.db_username}:${process.env.db_password}@${process.env.db_host}/?retryWrites=true&w=majority`)
