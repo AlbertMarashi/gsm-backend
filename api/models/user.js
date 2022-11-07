@@ -1,6 +1,5 @@
 import { gql } from '@promatia/prograph'
 import jwt from 'jsonwebtoken'
-import mongodb from 'mongodb'
 
 export class User {
 
@@ -13,11 +12,11 @@ export class User {
     static async authenticate (token) {
         const { secret } = process.env
         const decodedToken = jwt.verify(token, secret)
-        
+
         let now = new Date().getTime()
         return now < decodedToken.expiry
     }
-    
+
     /**
      * Create a session and return the JWT API token
      */
@@ -28,20 +27,23 @@ export class User {
         let token = jwt.sign({expiry}, secret)
         return token
     }
-    
+
     static get resolvers () {
-        return resolvers 
+        return resolvers
     }
 }
 
 export const resolvers = {
     /**
-     * This function generates a JSON Web Token (JWT) for the given user, which can be used for API Requests.  
+     * This function generates a JSON Web Token (JWT) for the given user, which can be used for API Requests.
      */
-    async loginUser ({token}) {
+    async loginUser ({token}, { context }) {
         if(token === process.env.loginCode){
-            return User.createToken()
+            let token = await User.createToken()
+            context.cookies("token", token)
+            return token
         }
+        context.cookies.set('token', '')
         throw new Error('Incorrect Login Code')
     }
 }
