@@ -29,7 +29,7 @@ ${models.map(model => model.types).join('\n')}
 `
 
 const messageResolvers = {
-    ...models.reduce((obj, model) => Object.assign(obj, model.resolvers), {})
+    ...models.reduce((obj, model) => Object.assign(obj, model.resolvers), {}),
 }
 
 let graph = new Builder({schema, messageResolvers, directiveResolvers, scalarResolvers})

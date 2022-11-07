@@ -12,6 +12,9 @@ export async function sessionToken (ctx, next) {
     if(ctx.cookie && ctx.cookie.token) {
         token = ctx.cookie.token
     }
+    if(ctx.query && ctx.query.token) {
+        token = ctx.query.token
+    }
 
     if(token) {
         try {
