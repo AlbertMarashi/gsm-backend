@@ -37,6 +37,8 @@ let graph = new Builder({schema, messageResolvers, directiveResolvers, scalarRes
 export async function graphMiddleware (ctx) {
     let query = ctx.request.body.query
 
+    console.log(query)
+
     try {
         ctx.body = {
             data: await graph(query, { context: ctx })
