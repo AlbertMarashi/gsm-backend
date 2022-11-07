@@ -42,6 +42,7 @@ export async function graphMiddleware (ctx) {
             data: await graph(query, { context: ctx })
         }
     } catch (error) {
+        console.error(error)
         ctx.body = {
             data: null,
             error: {
